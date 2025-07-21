@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #333491;
+  background: linear-gradient(0deg, rgba(51, 52, 145, 1) 11%, rgba(90, 77, 191, 0.82) 46%, rgba(31, 33, 148, 1) 90%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #dff6ff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.mainDiv{
+   display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

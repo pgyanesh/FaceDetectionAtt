@@ -1,0 +1,41 @@
+.sheet-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #f0f2ff, #e0e4fa);
+  min-height: 100vh;
+}
+
+.sheet-heading {
+  text-align: center;
+  font-size: 2rem;
+  color: #333491;
+  margin-bottom: 2rem;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.card h3 {
+  color: #5a4dbf;
+  margin-bottom: 0.5rem;
+}
+
+.card ul {
+  padding-left: 1.2rem;
+}
+
+.card li {
+  margin: 0.3rem 0;
+}
