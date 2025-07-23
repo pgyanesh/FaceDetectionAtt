@@ -1,15 +1,14 @@
 import axios from "axios";
 import { useState, useRef } from "react";
+import './Register.css';
 
 function Register() {
   const [name, setName] = useState("");
-  const [image, setImage] = useState(null); // File or Blob
+  const [image, setImage] = useState(null);
   const [useCamera, setUseCamera] = useState(false);
-
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
-  // Start camera
   const startCamera = async () => {
     setUseCamera(true);
     try {
@@ -21,17 +20,13 @@ function Register() {
     }
   };
 
-  // Capture image from webcam
   const captureImage = () => {
     const video = videoRef.current;
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
     canvas.toBlob((blob) => {
       setImage(blob);
     }, "image/jpeg");
@@ -45,13 +40,11 @@ function Register() {
 
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("image", image); // Blob or File
+    formData.append("image", image);
 
     try {
       const res = await axios.post("http://localhost:5000/register", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        headers: { "Content-Type": "multipart/form-data" },
       });
       console.log(res.data);
       alert("Registration successful!");
@@ -62,39 +55,52 @@ function Register() {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <input
-        type="text"
-        placeholder="Enter Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <div style={{ margin: "10px 0" }}>
-        <button onClick={startCamera}>Use Camera</button>
-        <span style={{ margin: "0 10px" }}>or</span>
+    <div className="register-container">
+      <div className="register-box">
+        <h2>Register</h2>
         <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => {
-            setUseCamera(false);
-            setImage(e.target.files[0]);
-          }}
+          type="text"
+          placeholder="Enter Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
-      </div>
 
-      {useCamera && (
-        <div>
-          <video ref={videoRef} autoPlay playsInline style={{ width: "300px" }} />
-          <br />
-          <button onClick={captureImage}>Capture Photo</button>
-          <canvas ref={canvasRef} style={{ display: "none" }} />
+        <div className="image-input-group">
+          <button onClick={startCamera}>Use Camera</button>
+          <span className="or">or</span>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => {
+              setUseCamera(false);
+              setImage(e.target.files[0]);
+            }}
+          />
         </div>
-      )}
 
-      <br />
-      <button onClick={handleRegister}>Register</button>
+        {useCamera && (
+          <div className="camera-box">
+            <video ref={videoRef} autoPlay playsInline className="video" />
+            <button className="capture-btn" onClick={captureImage}>
+              Capture Photo
+            </button>
+            <canvas ref={canvasRef} style={{ display: "none" }} />
+          </div>
+        )}
+
+        {image && (
+          <div className="preview-box">
+            <p>Preview:</p>
+            <img
+              src={URL.createObjectURL(image)}
+              alt="Captured or uploaded"
+              className="preview-image"
+            />
+          </div>
+        )}
+
+        <button onClick={handleRegister}>Register</button>
+      </div>
     </div>
   );
 }

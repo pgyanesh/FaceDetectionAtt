@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import axios from 'axios';
-import './MarkAttendance.css'
+import './MarkAttendance.css';
 
 const MarkAttendance = () => {
   const webcamRef = useRef(null);
@@ -22,23 +22,26 @@ const MarkAttendance = () => {
       });
 
       if (response.data.status === "success") {
-        setMessage("Attendance marked successfully");
+        setMessage("✅ Attendance marked successfully");
       } else {
-        setMessage("Failed to mark attendance");
+        setMessage("❌ Failed to mark attendance");
       }
     } catch (error) {
       console.error("Attendance marking failed:", error);
-      setMessage("Error: Attendance marking failed");
+      setMessage("❌ Error: Attendance marking failed");
     }
   };
 
   return (
-    <div className='mainDiv'>
-      <h2>Mark Attendance</h2>
-      <Webcam ref={webcamRef} screenshotFormat="image/jpeg" />
-      <br />
-      <button onClick={captureAndSend}>Mark Attendance</button>
-      <p>{message}</p>
+    <div className="mark-main">
+      <h2 className="mark-heading">Mark Attendance</h2>
+      <Webcam
+        ref={webcamRef}
+        screenshotFormat="image/jpeg"
+        className="mark-webcam"
+      />
+      <button className="mark-button" onClick={captureAndSend}>Capture & Mark</button>
+      {message && <p className="mark-message">{message}</p>}
     </div>
   );
 };

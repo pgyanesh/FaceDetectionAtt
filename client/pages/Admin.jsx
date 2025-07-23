@@ -1,14 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Admin.css';
 
-function AdminDashboard() {
+function Admin() {
   return (
-    <div>
-      <h2>Admin Dashboard</h2>
-      <Link to="/admin/register">Register Student</Link><br />
-      <Link to="/admin/sheet">View Attendance Sheet</Link>
+    <div className="admin-dashboard">
+      <div className="admin-container">
+        <h2>Welcome, Admin</h2>
+        <p className="admin-subtitle">Manage student attendance with ease</p>
+        <div className="admin-actions">
+          <Link to="/admin/register" className="admin-button">📋 Register Student</Link>
+          <Link to="/admin/sheet" className="admin-button">📊 View Attendance Sheet</Link>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default AdminDashboard;
+export default Admin;

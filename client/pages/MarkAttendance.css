@@ -1,19 +1,62 @@
-/* body {
+body {
   margin: 0;
   padding: 0;
-  background: #333491;
   background: linear-gradient(0deg, rgba(51, 52, 145, 1) 11%, rgba(90, 77, 191, 0.82) 46%, rgba(31, 33, 148, 1) 90%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #dff6ff;
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
+.mark-main-container {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
 
-.mainDiv{
-   display: flex;
-    justify-content: center;
-    flex-direction: column;
-} */
+.mark-title {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: #dff6ff;
+}
+
+.webcam-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.webcam-view {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.mark-btn {
+  background-color: #ffffff10;
+  border: 2px solid #ffffff55;
+  color: #dff6ff;
+  font-size: 1rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 1rem;
+}
+
+.mark-btn:hover {
+  background-color: #ffffff22;
+  transform: scale(1.05);
+  border-color: #ffffffaa;
+}
+
+.mark-message {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #ffdddd;
+}

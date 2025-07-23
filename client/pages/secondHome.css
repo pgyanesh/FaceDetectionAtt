@@ -1,59 +1,66 @@
-/* Root container styling */
+/* Fullscreen container with inspo gradient */
 .mainDiv {
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364); /* Deep gradient like inspo */
+  margin: 0;
+  background: radial-gradient(ellipse at top left, #1d1f2f, #11121b);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
 }
 
-/* Center the image section */
+/* Flex container for logos */
 .centerDiv {
   display: flex;
+  flex-wrap: wrap;
   gap: 60px;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  flex-wrap: wrap;
 }
 
-/* Styling for the images */
+/* Image styles for admin & student cards */
 .logos {
   height: 200px;
   width: 200px;
   object-fit: cover;
   border-radius: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.1);
   border: 2px solid transparent;
+  cursor: pointer;
 }
 
-/* Hover effect with glow */
+/* Hover: glow like inspo laser button */
 .logos:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 20px #00f2fe, 0 0 30px #4facfe;
-  border: 2px solid rgba(0, 242, 254, 0.7);
+  box-shadow:
+    0 0 15px rgba(0, 242, 254, 0.3),
+    0 0 30px rgba(79, 172, 254, 0.5),
+    0 0 40px rgba(0, 255, 200, 0.3);
+  border: 2px solid rgba(0, 242, 254, 0.6);
 }
 
-/* Responsive image size */
+/* Tablet responsive */
 @media (max-width: 768px) {
   .logos {
     height: 150px;
     width: 150px;
   }
-
   .centerDiv {
     gap: 30px;
   }
 }
 
+/* Mobile responsive */
 @media (max-width: 480px) {
   .logos {
     height: 120px;
     width: 120px;
   }
-
   .centerDiv {
     flex-direction: column;
     gap: 20px;

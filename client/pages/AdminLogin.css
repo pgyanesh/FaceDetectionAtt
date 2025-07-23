@@ -1,0 +1,96 @@
+/* Global reset and font */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #1d1f2f, #11121b);
+  color: white;
+}
+
+/* Main container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Glassmorphism box */
+.login-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  width: 320px;
+  text-align: center;
+}
+
+/* Heading */
+.login-box h2 {
+  color: #00f2fe;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.login-box input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  background: #ffffff10;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.login-box input::placeholder {
+  color: #bbb;
+}
+
+/* Button with laser-glow effect */
+.login-box button {
+  margin-top: 10px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  color: black;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px #00f2fe44;
+}
+
+.login-box button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00f2fe, 0 0 30px #4facfe;
+}
+
+/* Error message */
+.login-box p {
+  color: #ff4e4e;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 400px) {
+  .login-box {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .login-box h2 {
+    font-size: 20px;
+  }
+
+  .login-box button {
+    padding: 10px 20px;
+  }
+}
