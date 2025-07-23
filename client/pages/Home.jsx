@@ -1,25 +1,39 @@
-import './Home.css';
-import logo from '../src/assets/finalLogo.png';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Home.css";
+import logo from "../src/assets/finalLogo.png"; // Adjust path as needed
 
-function Home() {
-  const navigate = useNavigate(); // Step 1
+const Home = () => {
+  const navigate = useNavigate();
 
-  const handleLogoClick = () => {
-    navigate('/home2'); // Step 2
+  const handleStart = () => {
+    navigate("/home2");
   };
 
   return (
-    <div className='homePagediv1' style={{ backgroundColor: 'transparent' }}>
-      <img
-        className='homeImg'
-        src={logo}
-        alt="Logo"
-        onClick={handleLogoClick}
-        style={{ cursor: 'pointer' }} // Optional: makes it look clickable
-      />
+    <div className="homeContainer">
+      <header className="homeHeader">
+        <img src={logo} alt="Logo" className="logo" />
+      </header>
+
+      <main className="mainContent">
+        <h1 className="mainTitle">Seamless Face Recognition</h1>
+        <p className="subTitle">Advanced. Secure. Instant.</p>
+
+        <div className="laserWrapper">
+          <button className="inspoButton" onClick={handleStart}>
+            <span className="inspoButtonText">Explore</span>
+            <div className="rotatingBorder"></div>
+            <div className="laserLine"></div>
+          </button>
+        </div>
+      </main>
+
+      <footer className="footer">
+        © 2025 Your Company. All rights reserved.
+      </footer>
     </div>
   );
-}
+};
 
 export default Home;

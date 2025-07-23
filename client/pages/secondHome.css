@@ -1,20 +1,61 @@
-.mainDiv{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
+/* Root container styling */
+.mainDiv {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(145deg, #0f2027, #203a43, #2c5364); /* Deep gradient like inspo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.centerDiv{
-    height: 40vh;
-    width: 100vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+/* Center the image section */
+.centerDiv {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
 }
 
-.logos{
-    height: 37vh;
-    width: 17vw;
+/* Styling for the images */
+.logos {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border: 2px solid transparent;
+}
 
+/* Hover effect with glow */
+.logos:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #00f2fe, 0 0 30px #4facfe;
+  border: 2px solid rgba(0, 242, 254, 0.7);
+}
+
+/* Responsive image size */
+@media (max-width: 768px) {
+  .logos {
+    height: 150px;
+    width: 150px;
+  }
+
+  .centerDiv {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logos {
+    height: 120px;
+    width: 120px;
+  }
+
+  .centerDiv {
+    flex-direction: column;
+    gap: 20px;
+  }
 }

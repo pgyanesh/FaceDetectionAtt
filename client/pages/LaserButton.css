@@ -1,0 +1,51 @@
+.laser-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.laser-button {
+  position: relative;
+  padding: 12px 32px;
+  background: #000;
+  color: #fff;
+  font-size: 18px;
+  border: 1px solid #00ffe7;
+  border-radius: 50px;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.laser-button:hover {
+  background: #111;
+}
+
+.laser-text {
+  position: relative;
+  z-index: 2;
+}
+
+.glow-stripe {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 0%, #00ffe7 50%, transparent 100%);
+  transform: rotate(25deg);
+  animation: laserMove 2s linear infinite;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+@keyframes laserMove {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}

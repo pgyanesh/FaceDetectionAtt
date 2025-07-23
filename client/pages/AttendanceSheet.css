@@ -1,4 +1,4 @@
-.sheet-container {
+/* .sheet-container {
   padding: 2rem;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(180deg, #f0f2ff, #e0e4fa);
@@ -34,8 +34,18 @@
 
 .card ul {
   padding-left: 1.2rem;
+  margin-top: 0.5rem;
 }
 
 .card li {
   margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #333;
 }
+
+.error-text {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 2rem;
+} */

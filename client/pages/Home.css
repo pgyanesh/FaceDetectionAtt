@@ -1,23 +1,144 @@
-.homePagediv1{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #333491;
-background: linear-gradient(0deg, rgba(51, 52, 145, 1) 11%, rgba(90, 77, 191, 0.82) 46%, rgba(31, 33, 148, 1) 90%);
+/* Background like the UrPal site */
+body,
+html,
+.homeContainer {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(ellipse at top left, #1d1f2f, #11121b);
+  color: #fff;
+  overflow-x: hidden;
 }
 
-.homeImg{
-  height: 43vh;
-    width: 38vw;
-    /* mix-blend-mode: multiply; */
-    cursor: pointer;
-    
-  transition: transform 0.2s ease;
-
+/* Logo and header */
+.homeHeader {
+  padding: 20px;
+  text-align: center;
+}
+.logo {
+  height: 60px;
 }
 
-.homeImg:hover {
-  transform: scale(1.05);
+/* Main layout */
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  position: relative;
+}
+
+.mainTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.subTitle {
+  font-size: 1.3rem;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* BUTTON STYLING */
+.laserWrapper {
+  position: relative;
+}
+
+.inspoButton {
+  position: relative;
+  padding: 18px 48px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(145deg, #2b2e4a, #1e213a);
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6), inset 0 1px 3px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+.inspoButton:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3), inset 0 1px 3px rgba(255, 255, 255, 0.1);
+}
+
+/* Glowing rotating border */
+.rotatingBorder {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50px;
+  background: conic-gradient(
+    from 0deg,
+    #00f2ff,
+    #00ffd0,
+    #00ff88,
+    #00f2ff
+  );
+  filter: blur(4px);
+  animation: rotateLaser 3s linear infinite;
+  z-index: 0;
+}
+
+/* Laser line effect across the button */
+.laserLine {
+  position: absolute;
+  top: 50%;
+  left: -50%;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 242, 254, 0.8),
+    #4facfe,
+    rgba(0, 242, 254, 0.8),
+    transparent
+  );
+  filter: blur(4px) brightness(1.8);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.6), 0 0 20px rgba(0, 242, 254, 0.8);
+  animation: laserMove 2s linear infinite;
+  z-index: 3;
+  transform: translateY(-50%);
+}
+
+/* Text above layers */
+.inspoButtonText {
+  position: relative;
+  z-index: 3;
+}
+
+/* Animations */
+@keyframes rotateLaser {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveLaserLine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
 }
