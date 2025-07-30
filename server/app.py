@@ -1,11 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import pandas as pd
-import os
-from datetime import datetime
-import pickle
 import face_recognition
+import cv2
 import numpy as np
+import os
+import pickle
+import csv
+import pandas as pd
+from datetime import datetime
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 CORS(app)
@@ -18,7 +21,7 @@ REGISTER_DIR = 'register_data'
 # Ensure required folders and files exist
 os.makedirs(REGISTER_DIR, exist_ok=True)
 
-# ✅ Ensure CSV file exists with correct headers
+# Ensure CSV file exists with correct headers
 if not os.path.isfile(CSV_FILE):
     df = pd.DataFrame(columns=["Date", "Name", "Time"])
     df.to_csv(CSV_FILE, index=False)
@@ -26,7 +29,7 @@ if not os.path.isfile(CSV_FILE):
 else:
     print(f"[INFO] '{CSV_FILE}' already exists.")
 
-# ✅ Ensure encodings file exists
+# Ensure encodings file exists
 if not os.path.isfile(ENCODING_FILE):
     with open(ENCODING_FILE, 'wb') as f:
         pickle.dump({'encodings': [], 'names': []}, f)
@@ -94,8 +97,11 @@ def mark_attendance():
         for face_encoding in unknown_encodings:
             results = face_recognition.compare_faces(known_encodings, face_encoding)
             distances = face_recognition.face_distance(known_encodings, face_encoding)
-            best_match = np.argmin(distances)
 
+            if len(distances) == 0:
+                continue
+
+            best_match = np.argmin(distances)
             if results[best_match]:
                 match_name = known_names[best_match]
                 break
@@ -108,6 +114,9 @@ def mark_attendance():
         time_str = now.strftime("%H:%M:%S")
 
         df = pd.read_csv(CSV_FILE)
+
+        # Optional: prevent duplicates per day
+        # if not ((df['Name'] == match_name) & (df['Date'] == date_str)).any():
         df.loc[len(df.index)] = [date_str, match_name, time_str]
         df.to_csv(CSV_FILE, index=False)
 
@@ -121,14 +130,18 @@ def mark_attendance():
 @app.route('/attendance', methods=['GET'])
 def get_attendance():
     try:
-        # ✅ Check if file exists, else return empty list
-        if not os.path.exists(CSV_FILE):
-            return jsonify([])  # Frontend expects an array
-
-        df = pd.read_csv(CSV_FILE)
-        return jsonify(df.to_dict(orient='records'))
+        data = []
+        with open(CSV_FILE, 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                data.append({
+                    "Name": row.get("Name", ""),
+                    "Date": row.get("Date", ""),
+                    "Time": row.get("Time", "")
+                })
+        return jsonify(data)
     except Exception as e:
-        print("Attendance Log Error:", str(e))
+        print("Get Attendance Error:", str(e))
         return jsonify({"error": str(e)}), 500
 
 # === Run the App ===
