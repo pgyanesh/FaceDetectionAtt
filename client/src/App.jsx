@@ -6,7 +6,8 @@ import StudentDashboard from '../pages/Entity';
 import Register from '../pages/Register';
 import MarkAttendance from '../pages/MarkAttendance';
 import AttendanceSheet from '../pages/AttendanceSheet';
-import AdminLogin from '../pages/AdminLogin'; // ✅ Import added
+import AdminLogin from '../pages/AdminLogin'; 
+import AttendanceRegister from '../pages/AttendanceRegister';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         {/* Admin Routes */}
         <Route path="/admin/register" element={<Register />} />
         <Route path="/admin/sheet" element={<AttendanceSheet />} />
+        <Route path="/admin/full-attendance" element={<AttendanceRegister />} />
 
         {/* Admin Login */}
         <Route path="/admin/login" element={<AdminLogin />} />

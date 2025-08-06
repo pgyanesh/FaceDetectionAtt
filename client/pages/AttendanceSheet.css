@@ -2,11 +2,19 @@
   padding: 2rem;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #0e0d1b, #1d1c2c);
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-
+.homeHeader {
+  padding: 20px;
+  text-align: center;
+} 
 .sheet-heading {
+  margin-top: 10vh;
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 2rem;

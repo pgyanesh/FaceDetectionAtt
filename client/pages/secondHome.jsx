@@ -1,6 +1,8 @@
 import './secondHome.css';
-import logo1 from '../src/assets/admin.jpg';
-import logo2 from '../src/assets/student.jpg';
+import logo1 from '../src/assets/789.png';
+import logo2 from '../src/assets/234.png';
+import logo from "../src/assets/nie.png";
+
 import { useNavigate } from 'react-router-dom';
 
 function SecondHome() {
@@ -14,8 +16,17 @@ function SecondHome() {
     navigate('/student');
   };
 
+  const goHome = () => {
+    navigate("/")
+  };
+
   return (
     <div className='mainDiv'>
+      <div className="homeFig">
+            <header className="homeHeader">
+                    <img src={logo} alt="Logo" className="logo"  onClick={goHome}/>
+            </header>
+            </div>
       <div className="centerDiv">
         <img
           className='logos'

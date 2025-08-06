@@ -10,10 +10,13 @@
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
   color: #fff;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /* Flex container for logos */
 .centerDiv {
+  margin-top: 16vh;
   display: flex;
   flex-wrap: wrap;
   gap: 60px;
@@ -65,4 +68,8 @@
     flex-direction: column;
     gap: 20px;
   }
+}
+.homeHeader {
+  padding: 20px;
+  text-align: center;
 }

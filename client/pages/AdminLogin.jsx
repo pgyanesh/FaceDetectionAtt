@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AdminLogin.css'; // updated styles
+import logo from "../src/assets/nie.png";
 
 function AdminLogin() {
   const [username, setUsername] = useState('');
@@ -15,9 +16,16 @@ function AdminLogin() {
       setError('Invalid username or password');
     }
   };
-
+  const goHome = () => {
+    navigate("/")
+  };
   return (
     <div className="login-container">
+      <div className="homeFig">
+            <header className="homeHeader">
+                    <img src={logo} alt="Logo" className="logo" onClick={goHome} />
+            </header>
+            </div>
       <div className="login-box">
         <h2>Admin Login</h2>
         <input

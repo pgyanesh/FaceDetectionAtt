@@ -1,62 +1,83 @@
-body {
+body, html {
   margin: 0;
   padding: 0;
-  background: linear-gradient(0deg, rgba(51, 52, 145, 1) 11%, rgba(90, 77, 191, 0.82) 46%, rgba(31, 33, 148, 1) 90%);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #dff6ff;
-  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.mark-main {
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(circle at top left, #1d1f2f, #11121b);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-}
-
-.mark-main-container {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 2rem 2.5rem;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
   text-align: center;
+  padding: 20px;
 }
 
-.mark-title {
-  font-size: 2rem;
-  margin-bottom: 1.2rem;
-  color: #dff6ff;
+.mark-heading {
+  margin-top: 10vh;
+  font-size: 36px;
+  color: #00f2fe;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
 }
 
-.webcam-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
+.mark-webcam {
+  border-radius: 20px;
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.2);
+  margin-bottom: 20px;
 }
 
-.webcam-view {
-  width: 300px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-}
-
-.mark-btn {
-  background-color: #ffffff10;
-  border: 2px solid #ffffff55;
-  color: #dff6ff;
-  font-size: 1rem;
-  padding: 0.6rem 1.5rem;
-  border-radius: 8px;
+.mark-button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  margin-top: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.mark-btn:hover {
-  background-color: #ffffff22;
+.mark-button:hover {
   transform: scale(1.05);
-  border-color: #ffffffaa;
+  box-shadow: 0 0 15px #00f2fe, 0 0 30px #4facfe;
 }
 
 .mark-message {
-  margin-top: 1rem;
-  font-weight: bold;
-  color: #ffdddd;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .mark-heading {
+    font-size: 26px;
+  }
+
+  .mark-webcam {
+    width: 260px;
+    height: 200px;
+  }
+
+  .mark-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .mark-message {
+    font-size: 14px;
+  }
+}
+.homeHeader {
+  padding: 20px;
+  text-align: center;
 }

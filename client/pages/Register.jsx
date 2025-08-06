@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useRef } from "react";
 import './Register.css';
+import logo from "../src/assets/nie.png";
+
 
 function Register() {
   const [name, setName] = useState("");
@@ -53,9 +55,17 @@ function Register() {
       alert("Registration failed!");
     }
   };
+  const goHome = () => {
+    navigate("/")
+  };
 
   return (
     <div className="register-container">
+      <div className="homeFig">
+      <header className="homeHeader">
+              <img src={logo} alt="Logo" className="logo"  onClick={goHome}/>
+      </header>
+      </div>
       <div className="register-box">
         <h2>Register</h2>
         <input

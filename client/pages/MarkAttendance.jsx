@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import axios from 'axios';
+import logo from "../src/assets/nie.png";
 import './MarkAttendance.css';
 
 const MarkAttendance = () => {
@@ -8,32 +9,37 @@ const MarkAttendance = () => {
   const [message, setMessage] = useState('');
 
   const captureAndSend = async () => {
-    try {
-      const imageSrc = webcamRef.current.getScreenshot();
-      const blob = await (await fetch(imageSrc)).blob();
+  try {
+    const imageSrc = webcamRef.current.getScreenshot();
+    const blob = await (await fetch(imageSrc)).blob();
+    const formData = new FormData();
+    formData.append("image", blob, "capture.jpg");
 
-      const formData = new FormData();
-      formData.append('image', blob);
+    const res = await axios.post("http://localhost:5000/mark", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
-      const response = await axios.post("http://localhost:5000/mark", formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      if (response.data.status === "success") {
-        setMessage("✅ Attendance marked successfully");
-      } else {
-        setMessage("❌ Failed to mark attendance");
-      }
-    } catch (error) {
-      console.error("Attendance marking failed:", error);
-      setMessage("❌ Error: Attendance marking failed");
-    }
+    console.log("Server response:", res.data);
+    setMessage(res.data.message);
+  } catch (err) {
+    console.error("Attendance marking failed:", err);
+    setMessage("Error marking attendance.");
+  }
+};
+const goHome = () => {
+    navigate("/")
   };
+
 
   return (
     <div className="mark-main">
+      <div className="homeFig">
+            <header className="homeHeader">
+                    <img src={logo} alt="Logo" className="logo" onClick={goHome} />
+            </header>
+            </div>
       <h2 className="mark-heading">Mark Attendance</h2>
       <Webcam
         ref={webcamRef}

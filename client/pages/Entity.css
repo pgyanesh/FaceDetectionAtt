@@ -4,7 +4,7 @@ body, html {
   font-family: 'Poppins', sans-serif;
 }
 
-.admin-dashboard {
+.entity-dashboard {
   height: 100vh;
   width: 100vw;
   background: radial-gradient(circle at top left, #1d1f2f, #11121b);
@@ -15,40 +15,30 @@ body, html {
   color: #ffffff;
   text-align: center;
 }
-.homeHeader {
-  padding: 20px;
-  text-align: center;
-}
 
-.admin-container {
+.entity-container {
+  margin-top: 10vh;
   max-width: 600px;
   padding: 40px;
-  margin-top: 8vh;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(8px);
   box-shadow: 0 0 30px rgba(0, 242, 254, 0.1);
 }
 
-.admin-container h2 {
+.entity-container h2 {
   font-size: 36px;
   color: #00f2fe;
-  margin-bottom: 10px;
-}
-
-.admin-subtitle {
-  font-size: 18px;
-  color: #ccc;
   margin-bottom: 30px;
 }
 
-.admin-actions {
+.entity-actions {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.admin-button {
+.entity-button {
   display: inline-block;
   padding: 14px 28px;
   border-radius: 30px;
@@ -59,22 +49,22 @@ body, html {
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.admin-button:hover {
+.entity-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #00f2fe, 0 0 30px #4facfe;
+  color: rgb(46, 45, 45);
+  box-shadow: 0 0 15px #2367a2, 0 0 30px #2367a2;
 }
 
 /* Responsive */
 @media (max-width: 500px) {
-  .admin-container h2 {
+  .entity-container h2 {
     font-size: 26px;
   }
-
-  .admin-subtitle {
-    font-size: 14px;
-  }
-
-  .admin-button {
+.homeHeader {
+  padding: 20px;
+  text-align: center;
+}
+  .entity-button {
     font-size: 14px;
     padding: 10px 20px;
   }
