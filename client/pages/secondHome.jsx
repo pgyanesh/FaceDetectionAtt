@@ -2,6 +2,7 @@ import './secondHome.css';
 import logo1 from '../src/assets/789.png';
 import logo2 from '../src/assets/234.png';
 import logo from "../src/assets/nie.png";
+import Chatbot from './Chatbot';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -42,6 +43,7 @@ function SecondHome() {
           onClick={handleStudentClick}
           style={{ cursor: 'pointer' }}
         />
+        <Chatbot/>
       </div>
     </div>
   );

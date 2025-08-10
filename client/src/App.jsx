@@ -8,6 +8,7 @@ import MarkAttendance from '../pages/MarkAttendance';
 import AttendanceSheet from '../pages/AttendanceSheet';
 import AdminLogin from '../pages/AdminLogin'; 
 import AttendanceRegister from '../pages/AttendanceRegister';
+import chatbot from '../pages/Chatbot'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
 
         {/* Admin Login */}
         <Route path="/admin/login" element={<AdminLogin />} />
+        
       </Routes>
     </Router>
   );
